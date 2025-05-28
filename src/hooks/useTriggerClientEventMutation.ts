@@ -18,7 +18,7 @@ export function useTriggerClientEventMutation<
     const [error, setError] = useState<E | null>(null);
     const [data, setData] = useState<T | null>(null);
 
-    const handle = (sentData: S) => {
+    const handle = (sentData?: S) => {
         setIsLoading(true)
         triggerClientEvent<S>(endpointFrom, sentData)
     }
