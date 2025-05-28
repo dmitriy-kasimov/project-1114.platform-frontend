@@ -5,10 +5,11 @@ import {triggerClientEvent} from "../helpers/triggerClientEvent.ts";
 
 export function useTriggerClientEventQuery<
     T,
-    S = null,
+    S = string | null,
     E = string
 >(endpointFrom: string,
-  endpointTo: string
+  endpointTo: string,
+  params?: S
 ): TTriggerClientEventResponse<T, E>{
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [error, setError] = useState<E | null>(null);
@@ -24,7 +25,7 @@ export function useTriggerClientEventQuery<
 
     useEffect(() => {
         setIsLoading(true)
-        triggerClientEvent<S>(endpointFrom)
+        triggerClientEvent<S>(endpointFrom, params)
     }, []);
 
     return {data, error, isLoading}
