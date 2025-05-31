@@ -1,6 +1,6 @@
 {
   "name": "@project-1114/platform-frontend",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "type": "module",
   "main": "./build/index.umd.cjs",
   "types": "./build/index.d.ts",

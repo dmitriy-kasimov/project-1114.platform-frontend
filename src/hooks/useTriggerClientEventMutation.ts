@@ -8,12 +8,14 @@ export function useTriggerClientEventMutation<
     T,
     S = null,
     E = string
->(endpointFrom: string,
-  endpointTo: string
+>(endpoint: string
 ): [
     (sentData: S) => void,
     TTriggerClientEventResponse<T, E>
 ]{
+    const endpointFrom = `f:c:${endpoint}`
+    const endpointTo = `c:f:${endpoint}`
+
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [error, setError] = useState<E | null>(null);
     const [data, setData] = useState<T | null>(null);
